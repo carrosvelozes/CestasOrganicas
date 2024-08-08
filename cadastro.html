@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Cadastro de Consumidores</h2>
+            <form id="cadastroPessoaForm">
+                <label for="nomePessoa">Nome:</label>
+                <input type="text" id="nomePessoa" name="nomePessoa" required>
+
+                <label for="emailPessoa">E-mail:</label>
+                <input type="email" id="emailPessoa" name="emailPessoa" required>
+
+                <label for="enderecoPessoa">Endereço:</label>
+                <input type="text" id="enderecoPessoa" name="enderecoPessoa" required>
+
+                <button type="submit">Cadastrar Pessoa</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Cadastro de Produtos</h2>
+            <form id="cadastroProdutoForm">
+                <label for="nomeProduto">Nome do Produto:</label>
+                <input type="text" id="nomeProduto" name="nomeProduto" required>
+
+                <label for="descricaoProduto">Descrição:</label>
+                <input type="text" id="descricaoProduto" name="descricaoProduto" required>
+
+                <label for="precoProduto">Preço:</label>
+                <input type="number" id="precoProduto" name="precoProduto" step="0.01" required>
+
+                <button type="submit">Cadastrar Produto</button>
+            </form>
+        </section>
+
+        <section>
+            <h2>Cadastro de Pedidos</h2>
+            <form id="cadastroPedidoForm">
+                <label for="clientePedido">Nome do Cliente:</label>
+                <input type="text" id="clientePedido" name="clientePedido" required>
+
+                <label for="produtoPedido">Produto:</label>
+                <input type="text" id="produtoPedido" name="produtoPedido" required>
+
+                <label for="quantidadePedido">Quantidade:</label>
+                <input type="number" id="quantidadePedido" name="quantidadePedido" required>
+
+                <button type="submit">Concluir Pedido</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por [Seu Nome]. Todos os direitos reservados &copy; 2024.</p>
+    </footer>
+
+    <script src="js/cadastro.js"></script>
+</body>
+</html>
