@@ -8,8 +8,10 @@
 </head>
 <body>
     <header>
-        <img src="img/logo.png" alt="Logo da Cooperativa">
         <nav>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+            </div>
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
@@ -19,56 +21,43 @@
     </header>
 
     <main>
-        <section class="intro">
-            <h1>Bem-vindo à Cooperativa de Cestas Orgânicas</h1>
-            <p>Aqui você encontra os melhores produtos orgânicos diretamente do produtor.</p>
+        <section id="produtos">
+            <h2>Produtos Disponíveis</h2>
+            <div id="listaProdutos"></div>
         </section>
 
-        <section class="produtos">
-            <h2>Frutas e Verduras</h2>
-            <ul class="produto-lista">
-                <li class="produto-item">
-                    <img src="img/banana.jpg" alt="Banana">
-                    <h3>Banana</h3>
-                    <p>Bananas frescas e maduras, direto do produtor.</p>
-                    <p>Preço: R$ 5,00 / kg</p>
-                </li>
-                <li class="produto-item">
-                    <img src="img/maca.jpg" alt="Maçã">
-                    <h3>Maçã</h3>
-                    <p>Maçãs crocantes e suculentas.</p>
-                    <p>Preço: R$ 7,00 / kg</p>
-                </li>
-                <li class="produto-item">
-                    <img src="img/alface.jpg" alt="Alface">
-                    <h3>Alface</h3>
-                    <p>Alface orgânico, fresco e crocante.</p>
-                    <p>Preço: R$ 2,50 / unidade</p>
-                </li>
-                <li class="produto-item">
-                    <img src="img/tomate.jpg" alt="Tomate">
-                    <h3>Tomate</h3>
-                    <p>Tomates maduros e saborosos, perfeitos para saladas.</p>
-                    <p>Preço: R$ 6,00 / kg</p>
-                </li>
-                <li class="produto-item">
-                    <img src="img/couve.jpg" alt="Couve">
-                    <h3>Couve</h3>
-                    <p>Couve orgânica, ideal para sucos e refogados.</p>
-                    <p>Preço: R$ 3,00 / maço</p>
-                </li>
-                <li class="produto-item">
-                    <img src="img/abobrinha.jpg" alt="Abobrinha">
-                    <h3>Abobrinha</h3>
-                    <p>Abobrinha fresca, ideal para grelhar ou fazer refogados.</p>
-                    <p>Preço: R$ 4,00 / kg</p>
-                </li>
-            </ul>
+        <section id="carrinho">
+            <h2>Carrinho de Compras</h2>
+            <ul id="itensCarrinho"></ul>
+            <p id="totalCarrinho">Total: R$ 0,00</p>
+            <button onclick="finalizarCompra()">Finalizar Compra</button>
         </section>
     </main>
 
     <footer>
-        <p>Coperativa de Cestas Orgânicas &copy; 2024.</p>    </footer>
+        <p>Desenvolvido por [Seu Nome]. Todos os direitos reservados &copy; 2024.</p>
     </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        function carregarProdutos() {
+            const listaProdutos = document.getElementById('listaProdutos');
+            const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+
+            produtos.forEach(produto => {
+                const divProduto = document.createElement('div');
+                divProduto.className = 'produto';
+                divProduto.innerHTML = `
+                    <h3>${produto.nome}</h3>
+                    <p>Descrição: ${produto.descricao}</p>
+                    <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
+                    <button onclick="adicionarAoCarrinho('${produto.nome}', ${produto.preco})">Adicionar ao Carrinho</button>
+                `;
+                listaProdutos.appendChild(divProduto);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', carregarProdutos);
+    </script>
 </body>
 </html>
