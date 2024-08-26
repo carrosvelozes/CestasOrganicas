@@ -1,63 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cestas Orgânicas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Frufrutas</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
+    <div id="loading" class="loading">Carregando...</div>
     <header>
         <nav>
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+                <div class="login-area" id="loginArea">
+                    <a href="login.html" id="loginLink">Login</a>
+                </div>
             </div>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
         </nav>
     </header>
 
     <main>
-        <section id="produtos">
+        <section id="apresentacao" class="apresentacao-container">
+            <div class="card-apresentacao">
+                <img src="img/apresentacao.jpg" class="image-section">
+                <div class="card-content">
+                    <h2>Bem-vindo ao Frufrutas</h2>
+                    <p>Entregamos frutas frescas direto na sua casa.</p>
+                </div>
+            </div>
+            <div class="card-apresentacao">
+                <img src="img/login.jpg" alt="Login">
+                <div class="card-content">
+                    <h2>Já fez login?</h2>
+                    <p>Acesse sua conta para fazer seu pedido.</p>
+                    <button id="btn-login">Login</a>
+                </div>
+            </div>
+        </section>
+        <section id="produtos" class="produtos-disponiveis">
             <h2>Produtos Disponíveis</h2>
-            <div id="listaProdutos"></div>
+            <div class="produtos-container" id="listaProdutos"></div>
         </section>
 
-        <section id="carrinho">
+        <section id="carrinho" class="carrinho-oculto">
             <h2>Carrinho de Compras</h2>
             <ul id="itensCarrinho"></ul>
             <p id="totalCarrinho">Total: R$ 0,00</p>
             <button onclick="finalizarCompra()">Finalizar Compra</button>
         </section>
     </main>
-
     <footer>
-        <p>Desenvolvido por [Seu Nome]. Todos os direitos reservados &copy; 2024.</p>
+        <p>Desenvolvido por timeLL. Todos os direitos reservados &copy; 2024.</p>
     </footer>
-
-    <script src="js/script.js"></script>
-    <script>
-        function carregarProdutos() {
-            const listaProdutos = document.getElementById('listaProdutos');
-            const produtos = JSON.parse(localStorage.getItem('produtos')) || [];
-
-            produtos.forEach(produto => {
-                const divProduto = document.createElement('div');
-                divProduto.className = 'produto';
-                divProduto.innerHTML = `
-                    <h3>${produto.nome}</h3>
-                    <p>Descrição: ${produto.descricao}</p>
-                    <p>Preço: R$ ${produto.preco.toFixed(2)}</p>
-                    <button onclick="adicionarAoCarrinho('${produto.nome}', ${produto.preco})">Adicionar ao Carrinho</button>
-                `;
-                listaProdutos.appendChild(divProduto);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', carregarProdutos);
-    </script>
+    <script type="module" src="js/script.js"></script>
 </body>
+
 </html>

@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro - Cestas Orgânicas</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Frufrutas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cadastro.css">
 </head>
+
 <body>
+    <div id="loading" class="loading">Carregando...</div>
     <header>
         <nav>
-            <div class="logo">
-                <img src="img/logo.png" alt="Logo">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+                <div class="login-area" id="loginArea">
+                    <a href="login.html" id="loginLink">Login</a>
+                </div>
             </div>
-            <ul>
-                <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html">Sobre</a></li>
-                <li><a href="contato.html">Contato</a></li>
-            </ul>
         </nav>
     </header>
 
@@ -30,50 +43,38 @@
                 <label for="emailPessoa">E-mail:</label>
                 <input type="email" id="emailPessoa" required><br>
 
-                <label for="enderecoPessoa">Endereço:</label>
-                <input type="text" id="enderecoPessoa" required><br>
+                <label for="senhaPessoa">Senha:</label>
+                <input type="password" id="senhaPessoa" required><br>
 
-                <button type="submit">Cadastrar</button>
+                <button type="submit" id="btn-cadastro">Cadastrar</button>
             </form>
         </section>
 
         <section id="cadastro-produto">
             <h2>Cadastro de Produto</h2>
-            <form id="cadastroProdutoForm">
-                <label for="nomeProduto">Nome:</label>
-                <input type="text" id="nomeProduto" required><br>
+            <form id="cadastroProduto">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
 
-                <label for="descricaoProduto">Descrição:</label>
-                <input type="text" id="descricaoProduto" required><br>
+                <label for="descricao">Descrição:</label>
+                <input type="text" id="descricao" name="descricao" required>
 
-                <label for="precoProduto">Preço:</label>
-                <input type="number" step="0.01" id="precoProduto" required><br>
+                <label for="preco">Preço:</label>
+                <input type="text" id="preco" name="preco" step="0.01" required>
 
-                <button type="submit">Cadastrar</button>
-            </form>
-        </section>
+                <label for="imagem">URL da Imagem:</label>
+                <input type="text" id="imagem" name="imagem">
 
-        <section id="cadastro-pedido">
-            <h2>Cadastro de Pedido</h2>
-            <form id="cadastroPedidoForm">
-                <label for="clientePedido">Cliente:</label>
-                <input type="text" id="clientePedido" required><br>
-
-                <label for="produtoPedido">Produto:</label>
-                <input type="text" id="produtoPedido" required><br>
-
-                <label for="quantidadePedido">Quantidade:</label>
-                <input type="number" id="quantidadePedido" required><br>
-
-                <button type="submit">Concluir Pedido</button>
+                <button type="submit" id="btn-cadastro">Cadastrar Produto</button>
             </form>
         </section>
     </main>
 
     <footer>
-        <p>Desenvolvido por [Seu Nome]. Todos os direitos reservados &copy; 2024.</p>
+        <p>Desenvolvido por timeLL. Todos os direitos reservados &copy; 2024.</p>
     </footer>
-
-    <script src="js/cadastro.js"></script>
+    <script type="module" src="js/script.js"></script>
+    <script type="module" src="js/cadastro.js"></script>
 </body>
+
 </html>

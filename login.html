@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.0/firebase-firestore.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frufrutas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/cadastro.css">
+</head>
+
+<body>
+    <div id="loading" class="loading">Carregando...</div>
+
+    <header>
+        <nav>
+            <div class="header-content">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+                <ul class="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="Sobre.html">Sobre</a></li>
+                    <li><a href="cadastro.html">Cadastro</a></li>
+                </ul>
+                <div class="login-area" id="loginArea">
+                    <a href="login.html" id="loginLink">Login</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" required><br>
+
+                <label for="password">Senha:</label>
+                <input type="password" id="password" required><br>
+
+                <button type="submit" id="btn-cadastro">Entrar</button>
+            </form>
+            <p id="loginMessage"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido por timeLL. Todos os direitos reservados &copy; 2024.</p>
+    </footer>
+    <script type="module" src="js/login.js"></script>
+    <script type="module" src="js/script.js"></script>
+</body>
+
+</html>
