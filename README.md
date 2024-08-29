@@ -12,7 +12,7 @@ O projeto é um e-commerce simples focado em **cestas orgânicas**, onde os usu�
 
 Os administradores têm a capacidade de:
 
-- Adicionar produtos a loja!
+- Adicionar produtos a loja
 
 ## Funcionalidades
 
